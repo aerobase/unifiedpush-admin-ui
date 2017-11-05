@@ -4,6 +4,7 @@
       ng-class="{ active: snippet == state.activeSnippet }">
     <a href ng-click="state.activeSnippet = snippet">
       <span ng-if="snippet == 'android'">Android</span>
+      <span ng-if="snippet == 'simplePush'">JavaScript</span>
       <span ng-if="snippet == 'ios_objc'">ObjectiveC</span>
       <span ng-if="snippet == 'ios_swift'">Swift</span>
       <span ng-if="snippet == 'dotnet'">C#</span>

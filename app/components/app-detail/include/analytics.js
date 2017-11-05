@@ -66,6 +66,7 @@ angular.module('upsConsole')
       switch(variant.type) {
         case 'adm': return 'Amazon';
         case 'ios': return 'iOS';
+        case 'simplePush': return 'SimplePush';
         case 'windows_wns': return 'Windows';
         case 'android': return 'Android';
         default: return variant.type;
