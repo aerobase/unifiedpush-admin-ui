@@ -32,12 +32,6 @@ module.exports = function ( grunt ) {
         if (!grunt.file.isDir(jbossweb)) {
             grunt.fatal('jbossweb directory ' + jbossweb + ' configured in ./local-config.json is not directory (must be exploded WAR)');
         }
-        if (!grunt.file.exists(jbossweb + '/WEB-INF') || !grunt.file.isDir(jbossweb + '/WEB-INF')) {
-            grunt.fatal('jbossweb directory ' + jbossweb + ' configured in ./local-config.json does not contain directory ./WEB-INF (is it really an exploded WAR?)');
-        }
-        if (!/\/standalone\/deployments\//.test(jbossweb)) {
-            grunt.fatal('jbossweb directory ' + jbossweb + ' configured in ./local-config.json does not have parent directories /standalone/deployments/, are you sure it is a correct path to the deployed exploded WAR?');
-        }
     }
 
 

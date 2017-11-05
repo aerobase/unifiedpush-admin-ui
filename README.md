@@ -1,4 +1,4 @@
-# AeroGear Unified Push Server - Admin UI [![Build Status](https://travis-ci.org/aerogear/aerogear-unifiedpush-server-admin-ui.png)](https://travis-ci.org/aerogear/aerogear-unifiedpush-server-admin-ui)
+# AeroBase Unified Push Server - Admin UI [![Build Status](https://travis-ci.org/aerobase/unifiedpush-server-admin-ui.svg)](https://travis-ci.org/aerobase/unifiedpush-admin-ui)
 
 ### Setting Up The Development Environment
 
@@ -23,52 +23,25 @@ UPS is run using a {Wildfly-10|EAP 7} server so one of these servers will need t
 To start the server run the command:
 
 ```
-$SERVER_HOME/bin/standalone.sh -c standalone-full.xml -b 0.0.0.0
+sudo unifiedpush-ctl start
 ```
 
-and to configure the server for UPS run the command:
+Add current user to relevant UPS groups.
 
 ```
-$SERVER_HOME/bin/jboss-cli.sh --file=/path/to/aerogear-unifiedpush-server/configuration/jms-setup-wildfly.cli
+sudo usermod -a -G unifiedpush $USER
+sudo usermod -a -G unifiedpush-www $USER
 ```
 
-The Database and Authentication need to be set now.
-
-Copy `databases/unifiedpush-h2-ds.xml` into the `standalone/deployments` directory. This will be the database.
-```
-cd $SERVER_HOME/standalone/deployments
-cp path/to/aerogear-unifiedpush-server/databases/unifiedpush-h2-ds.xml unifiedpush-h2-ds.xml
-```
-And copy auth-server.war to `standalone/deployments` for authentication.
-```
-cp -r path/to/aerogear-unifiedpush-server/servers/auth-server/target/auth-server.war auth-server.war
-```
-
-Now lets add `ag-push` to the server. After building the whole project with `mvn`, you will have these two files located in `aerogear-unifiedpush-server/servers/ups-wildfly/target/`:
-
-```
-ag-push.war
-ag-push
-```
-`ag-push.war` can be deployed directly but in order for Grunt to work properly, `ag-push` must be deployed instead. To do that, simply rename it to `ag-push.war` and move it to the `standalone/deployments` directory:
-
-```
-cp -r path/to/aerogear-unifiedpush-server/servers/ups-wildfly/target/ag-push ag-push.war
-```
-
-Now you need to to indicate that `ag-push` should be deployed. Within the `standalone/deployments` directory run:
-```
-touch ag-push.war.dodeploy
-```
 Now Grunt must be configured:
 
-    grunt initLocalConfig
+    sudo grunt initLocalConfig
 
 This is more likely to fail first time. It will create a file named `local-config.json` that you have to edit to suit your local environment:
 
     {
-        "home": "/path/to/aerogear-unified-push-server/admin-ui",
-        "jbossweb": "/path/to/server_home/standalone/deployments/ag-push.war",
+        "home": "./",
+        "jbossweb": "/var/opt/unifiedpush/nginx/www/html/unifiedpush-server/",
     }
 
 
@@ -76,7 +49,7 @@ This is more likely to fail first time. It will create a file named `local-confi
 
 > NOTE: This is now required for all grunt steps below because of bug in assemble-less - once fixed, it will be required just for development_
 
-Now the UI should be accessible at http://localhost:8080/ag-push. NOTE: the default user/password is admin:123
+Now the UI should be accessible at http://localhost:8080/unifiedpush-server/. NOTE: the default user/password is admin:123
 
 Finally, to start developing, run:
 
@@ -87,7 +60,7 @@ Now anytime you save a file, grunt will deploy the UI and you will see the chang
 
 ### Generate distribution
 
-To create a distribution in `admin-ui/dist/` directory:
+To create a distribution in `unifiedpush-admin-ui/dist/` directory:
 
     grunt dist
     
@@ -96,12 +69,6 @@ To create a distribution and copy it jbossweb folder (as configured above):
     grunt jbosswebDist
     
     
-In order to create a WAR application, go into `../server/` folder and run Maven build:
-
-    cd ../server/
-    mvn clean install
-    
-
 ### Cleaning the Admin UI build
 
 For sake of quick development turnaround, the `$ mvn clean` will clean just `dist/` and `.tmp/` build directories, but some frontend build related directories will be still cached (`node/`, `node_modules/`, `app/bower_components/`, `.build-tmp`). In order to clean all build related caches, execute:
