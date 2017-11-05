@@ -8,6 +8,7 @@ angular.module('upsConsole')
     this.config = {
       android: {},
       ios: {},
+      simplePush : {},
       windows_wns: {},
       adm: {}
     };
