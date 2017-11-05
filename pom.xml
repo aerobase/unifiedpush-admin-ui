@@ -104,6 +104,7 @@
                     <descriptors>
                         <descriptor>assembly.xml</descriptor>
                     </descriptors>
+		    <finalName>unifiedpush-admin-ui</finalName>
                 </configuration>
                 <executions>
                     <execution>
