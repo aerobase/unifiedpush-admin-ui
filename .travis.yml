@@ -1,7 +1,8 @@
 language: java
 
+cache:
+  directories:
+    - $HOME/.m2
+
 jdk:
   - oraclejdk8
-notifications:
-  irc: "irc.freenode.org#aerogear"
-  
