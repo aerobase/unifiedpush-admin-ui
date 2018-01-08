@@ -1,4 +1,4 @@
-# AeroBase Unified Push Server - Admin UI [![Build Status](https://travis-ci.org/aerobase/unifiedpush-server-admin-ui.svg)](https://travis-ci.org/aerobase/unifiedpush-admin-ui)
+# Aerobase Unifiedpush server - Admin UI [![Build Status](https://travis-ci.org/aerobase/unifiedpush-server-admin-ui.svg)](https://travis-ci.org/aerobase/unifiedpush-admin-ui)
 
 ### Setting Up The Development Environment
 
