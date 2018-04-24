@@ -1,6 +1,6 @@
 {
   "name": "ups-admin-ui",
-  "version": "1.2.9",
+  "version": "1.2.12",
   "dependencies": {
     "angular": "1.4.0",
     "angular-resource": "1.4.0",
