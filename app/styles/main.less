@@ -12,15 +12,23 @@
 
 //@import "../bower_components/highlightjs/styles/default.css";
 
-// Aerobase changes to support full page height
-html,body,.container-fluid,.row,.ups-page,.sidebar-pf {
+/* Aerobase changes to strech page and add scroll */
+html,body {
   height: 100%;
 }
 
 .container-fluid {
   overflow: auto;
+  height: calc(100% - 100px);
 }
 
+.sidebar-pf {
+  margin-bottom: -2000px;
+  padding-bottom: 2000px;
+  overflow: hidden;
+}
+
+/* END Aerobase changes to strech page and add scroll */
 .muted{
   color: @gray-light;
   margin: 0;
