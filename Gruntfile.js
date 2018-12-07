@@ -62,7 +62,7 @@ module.exports = function (grunt) {
           '{<%= yeoman.app %>,<%= yeoman.tmp %>}/components/**/*.{html,js}',
           '{<%= yeoman.app %>,<%= yeoman.tmp %>}/styles/{,*/}*.css',
           '{<%= yeoman.app %>,<%= yeoman.tmp %>}/scripts/{,*/}*.js',
-          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg,ico}'
         ],
         tasks: [ 'newer:copy:jbossweb' ]
       }
@@ -120,7 +120,7 @@ module.exports = function (grunt) {
         src: [
           '<%= yeoman.dist %>/scripts/{,*/}*.js',
           '<%= yeoman.dist %>/styles/{,*/}*.css',
-          '<%= yeoman.dist %>/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+          '<%= yeoman.dist %>/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg,ico}'
         ]
       }
     },
@@ -218,7 +218,7 @@ module.exports = function (grunt) {
               'snippets/**',
               '*.{ico,txt}',
               '*.json',
-              'img/{,*/}*.{webp,gif,png,jpg,svg}'
+              'img/{,*/}*.{webp,gif,png,jpg,svg,ico}'
             ]
           },
           {
